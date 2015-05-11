@@ -1,2 +1,5 @@
 module.exports = angular.module('jamApp.common', [])
-  .factory('requests',     require('./requests_factory'));
+
+  .constant('API_URL', 'http://www.jamnow.eu/match/')
+
+  .factory('requests', require('./requests_factory'));
