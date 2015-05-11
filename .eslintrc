@@ -1,0 +1,48 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-bitwise": 2,
+    "camelcase": 0,
+    "curly": 2,
+    "eqeqeq": 2,
+    "wrap-iife": 2,
+    "no-use-before-define": 2,
+    "new-cap": 2,
+    "no-caller": 2,
+    "quotes": [2, "single"],
+    "no-undef": 0,
+    "no-unused-vars": 2,
+    "strict": 2,
+    "max-depth": [2, 2],
+    "no-path-concat": 0,
+    "no-underscore-dangle": 0,
+    "no-alert": 0,
+    "eol-last": 0,
+    "no-irregular-whitespace": 0,
+    "no-multi-spaces": 0,
+    "no-trailing-spaces": 0,
+    "key-spacing": 0,
+    "indent": [2, 2]
+  },
+  "globals": {
+    "angular": false,
+    "$": false,
+    "Event": false,
+    "Highcharts": false,
+    "Modernizr": false,
+    "Tether": false,
+    "Drop": false,
+    "jasmine": false,
+    "describe": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "inject": false,
+    "it": false,
+    "expect": false,
+    "spyOn": false,
+    "SimpleLRU": false
+  }
+}

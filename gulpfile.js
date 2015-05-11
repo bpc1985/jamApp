@@ -10,10 +10,17 @@ var concat       = require('gulp-concat');
 var stripDebug   = require('gulp-strip-debug');
 var uglify       = require('gulp-uglify');
 var rename       = require('gulp-rename');
+var eslint       = require('gulp-eslint');
 
 var browserified = transform(function(filename) {
   var b = browserify(filename);
   return b.bundle();
+});
+
+gulp.task('lint-js', function() {
+  return gulp.src('./app/scripts/**/*.js')
+    .pipe(eslint())
+    .pipe(eslint.format());
 });
 
 // JS concat, strip debugging code and minify
@@ -42,7 +49,7 @@ gulp.task('watch', function() {
 gulp.task('build', ['minify']);
 
 // default gulp task server
-gulp.task('server', ['build', 'connect', 'watch']);
+gulp.task('server', ['lint-js', 'build', 'connect', 'watch']);
 
 
 

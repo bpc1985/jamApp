@@ -8,7 +8,7 @@ angular.module('jamApp', [
     require('./meetings').name,
     require('./matches').name,
     require('./profile').name,
-    require('./contact').name,
+    require('./contact').name
   ])
   .config(['$routeProvider', 'ngFabFormProvider', function($routeProvider, ngFabFormProvider){
     'use strict';
