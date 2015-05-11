@@ -1,0 +1,475 @@
+@import "mixin";
+@include font-face("FiraSans Light", url("../font/FiraSans-Light.otf"));
+@include font-face("FiraSans Regular", url("../font/FiraSans-Regular.otf"));
+
+$primary-color: #FFFFFF;
+$bgColor: #131313;
+$secondary-color: #00e695;
+$border-left-colors : #e60067, #00e695, #7550ff;
+
+body, html {
+	margin:0;
+	padding:0;
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	background-color: $bgColor !important;
+	color: $primary-color !important;
+	font-family: "FiraSans Light";
+	font-size: 1.2rem;
+}
+h1 {
+	font-family: "FiraSans Light"; 
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+	text-transform: uppercase;
+	margin: 0.8rem 0;
+}
+h2 {
+	font-family: "FiraSans Light"; 
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	margin: 0.4rem 0;
+}
+.container {
+	width: 100%;
+	min-height: 100%;
+	margin-bottom: 65px;
+}
+.wrapper {
+	max-width: 95%;
+	margin: 0 auto;
+}
+a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+/* NOTIFICATION */
+.notification section > div {
+	border-bottom: 1px solid $primary-color;
+	padding: 1rem 0;
+}
+.evt-location-time {
+	font-size: 2.5rem;
+	font-family: "FiraSans Regular";
+	text-transform: uppercase;
+	opacity: 0.7;
+	line-height: 3rem;
+	&:before {
+		content: " ";
+		background: url('../img/ico_time-01.png') top left no-repeat;
+		background-size: 37px;
+		padding-left: 55px;
+	}
+}
+.evt-location {
+	position: relative;
+	overflow: hidden;
+}
+.evt-location-left, .evt-location-right {
+	display: inline-block;
+	transition: 200ms;
+	-webkit-transition: 200ms;
+}
+.evt-location-left {
+	width: 100%;
+}
+.evt-location-right {
+	position: absolute;
+	top:0;
+	right: -40%;
+	width:40%;
+	height:100%;
+	background-color: $secondary-color;
+	text-align: center;
+	img {
+		position: relative;
+		top:50%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+	}
+}
+.evt-location-place {
+	font-size: 2.2rem;
+	font-family: "FiraSans Regular";
+	text-transform: uppercase;
+	opacity: 0.7;
+	line-height: 2.8rem;
+	&:before {
+		content: " ";
+		background: url('../img/ico_location-01.png') top left no-repeat;
+		background-size: 37px;
+		padding-left: 55px;
+	}
+}
+
+/* MEETINGS */
+.meetings {
+	.meeting-1 {
+		background: url("../img/han.straberg.png") top left no-repeat;
+		background-size: cover;
+	}
+	.meeting-2 {
+		background: url("../img/rex.tibbens.png") top left no-repeat;
+		background-size: cover;
+	}
+	.meeting-3 {
+		background: url("../img/han.straberg.png") top left no-repeat;
+		background-size: cover;
+	}
+}
+.tabs {
+  float: none;
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 0 auto;
+  input[type=radio] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  li {
+  	float: left;
+  }
+  label {
+  	display: block;
+    padding: 10px 20px;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 50%;
+    z-index: 3;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 2px 2px 0 0;
+    color: $primary-color;
+    font-size: 1.5rem;
+    font-weight: normal;
+    background-color: $bgColor;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.7);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+    &:hover {
+    	background-color: $secondary-color;
+      top: 0;
+    }
+  }
+  li:nth-child(2) {
+  	label {
+	  	left: 50%;
+	  }
+  }
+  [id^=tab]:checked + label {
+    background-color: $secondary-color;
+    color: $primary-color;
+    top: 0;
+  }
+   
+  [id^=tab]:checked ~ [id^=tab-content] {
+      display: block;
+  }
+}     
+.tab-content{
+  z-index: 2;
+  display: none;
+  text-align: left;
+  width: 100%;
+  font-size: 20px;
+  line-height: 140%;
+  padding-top: 10px;
+  color: white;
+  position: absolute;
+  top: 49px;
+  left: 0;
+  box-sizing: border-box;
+  -webkit-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  margin-bottom: 65px;
+  section {
+  	padding: 1rem 0;
+  }
+  $repeat: 20;
+  @for $i from 1 through $repeat {
+    section:nth-child(#{length($border-left-colors)}n+#{$i}) .border-left {
+        border-left: 4px solid lighten(nth($border-left-colors, random(length($border-left-colors))), 0%);
+    }
+	}
+  .pp-info {
+  	padding: 0.1rem 0.435rem;
+  	margin: 0.675rem 0;
+  }
+}
+
+
+/* MATCHES */
+.matches {
+	section{
+		padding: 1rem 0;
+		overflow: hidden;
+	}
+	.person-1 {
+		background: url("../img/han.straberg.png") top left no-repeat;
+		background-size: cover;
+	}
+	.person-2 {
+		background: url("../img/rex.tibbens.png") top left no-repeat;
+		background-size: cover;
+	}
+	.person-3 {
+		background: url("../img/han.straberg.png") top left no-repeat;
+		background-size: cover;
+	}
+}
+.match-percent {
+	font-family: "FiraSans Regular";
+	font-size: 4rem;
+	text-align: right;
+	text-transform: uppercase;
+	opacity: 0.7;
+}
+.borderleft {
+	border-left: 4px solid #00e695;
+	padding: 0 0.875rem;
+	box-sizing: border-box;
+}
+/* PROFILE */
+.center {
+	text-align: center;
+}
+.info-1 {
+	padding-top: 5rem;
+	padding-bottom: 1rem;
+	background: url("../img/han.straberg.png") top left no-repeat;
+	background-size: cover;
+	border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+.info-2 {
+	padding: 1rem 0;
+	border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+.info-3 {
+	background: url("../img/portfolio.png") top left no-repeat;
+	background-size: cover;
+	padding: 3rem 0;
+	border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+.info-4 {
+	padding: 3rem 0;
+	border-bottom: 1px solid rgba(255,255,255,0.7);
+	text-transform: uppercase;
+}
+.info-5 {
+	background: url("../img/portfolio.png") top left no-repeat;
+	background-size: cover;
+	padding: 3rem 0;
+	border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+.m-icon-right {
+	&:after {
+		content: " ";
+		background-image: url('../img/ico_right-01.png');
+		background-size: 18px 25px;
+		background-repeat: no-repeat;
+		width: 18px;
+		height: 25px;
+		display: inline-block;
+		margin-left: 0.8rem;
+		top: 0.4rem;
+		position: relative;
+	}
+}
+/* CONTACT */
+.contact {
+	section{
+		padding: 1rem 0;
+		overflow: hidden;
+		border-bottom: 1px solid rgba(255,255,255,0.7);
+	}
+	$repeat: 20;
+  @for $i from 1 through $repeat {
+    section:nth-child(#{length($border-left-colors)}n+#{$i}) .borderleft{
+        border-left: 4px solid lighten(nth($border-left-colors, random(length($border-left-colors))), 0%);
+    }
+	}
+	.person-1 {
+		background: url("../img/han.straberg.png") top left no-repeat;
+		background-size: cover;
+	}
+	.person-2 {
+		background: url("../img/rex.tibbens.png") top left no-repeat;
+		background-size: cover;
+	}
+	.person-3 {
+		background: url("../img/han.straberg.png") top left no-repeat;
+		background-size: cover;
+	}
+	.person-4 {
+		background: url("../img/han.straberg.png") top left no-repeat;
+		background-size: cover;
+	}
+	.person-5 {
+		background: url("../img/rex.tibbens.png") top left no-repeat;
+		background-size: cover;
+	}
+	.person-6 {
+		background: url("../img/han.straberg.png") top left no-repeat;
+		background-size: cover;
+	}
+}
+/* MEETING CREATE */
+select {
+	background-color: #000000;
+	color: #FFFFFF;
+	font-size: 1em;
+ 	line-height: 1;
+ 	border: 0;
+ 	border-radius: 0;
+ 	-webkit-appearance: none;
+ 	box-sizing: border-box;
+ 	border: 1px solid rgba(255,255,255,0.7);
+ 	text-transform: uppercase;
+	background: url('../img/ico_down_g-01.png') no-repeat 95% 50%;
+	&:hover {
+		background-color: $secondary-color;
+	}
+	&:focus {
+		background-color: #000;
+	}
+}
+.meeting-create {
+	section {
+		padding: 1rem 0;
+		overflow: hidden;
+	}
+	section.form {
+		padding: 0;
+	}
+	.person-1 {
+		background: url("../img/han.straberg.png") top left no-repeat;
+		background-size: cover;
+	}
+}
+.select-group {
+	width: 100%;
+	overflow: hidden;
+	select {
+		 width: 50%;
+		 padding: 5px 15px;
+		 float: left;
+		 height: 50px;
+	}
+}
+
+.button-group {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	.vis-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+	}
+	label {
+	  padding: 5px;
+	  width: 33.33333333333%;
+	  box-sizing: border-box;
+	  position: relative;
+	  float: left;
+	  margin: 0;
+	  height: 50px;
+	  line-height: 40px;
+	  left: auto !important;
+	}
+	input:focus + label {
+	  background-color: #000;
+	}
+	input:checked + label {
+	  background-color: $secondary-color;
+	}
+	input:focus:checked + label {
+	  border-color: green;
+	}
+	&:after {
+		clear:both;
+	}
+}
+
+.dropdown-group {
+	select {
+		display: block;
+		width: 100%;
+		padding: 2.2rem 1rem;
+	}
+}
+button {
+	background: #000;
+	color: #fff;
+	border: 0;
+	width: 50%;
+	cursor: pointer;
+	padding: 4rem 0;
+	margin: 0;
+	border: 1px solid rgba(255,255,255,0.7);
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	&:hover {
+		background: $secondary-color;
+	}
+}
+.input-group {
+	input {
+		display: block;
+		width: 100%;
+		height: 55px;
+		background: #000;
+		color: #fff;
+		font-size: 1rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		box-sizing: border-box;
+		border: 1px solid rgba(255,255,255,0.7);
+	}
+}
+.controller {
+	width: 100%;
+	overflow: hidden;
+	button {
+		float: left;
+	}
+}
+
+/* NAV */
+.nav {
+	width: 100%;
+	height: 65px;
+	position: fixed;
+	bottom: 0;
+	left:0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 9;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 1rem 0;
+		li {
+			float: left;
+			width: 20%;
+			text-align: center;
+		}
+	}
+}

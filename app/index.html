@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jam App</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body ng-app="jamApp" ng-strict-di>
+        <div class="container">
+
+            <div ng-view=""></div>
+
+            <div class="nav">
+                <div class="wrapper">
+                  <ul>
+                    <li class="notification"><a href="#/notifcation" class="active"><img src="img/ico_notification-active-01.png" alt="" width="25"></a></li>
+                    <li class="meetings"><a href="#/meetings"><img src="img/ico_meetings-01.png" alt="" width="30"></a></li>
+                    <li class="matches"><a href="#/matches"><img src="img/ico_matches-01.png" alt="" width="30"></a></li>
+                    <li class="profile"><a href="#/profile"><img src="img/ico_profile-01.png" alt="" width="30"></a></li>
+                    <li class="contact"><a href="#/contact"><img src="img/ico_contacts-01.png" alt="" width="30"></a></li>
+                  </ul>
+                </div>
+            </div>
+
+        </div><!-- .container-->
+
+        <script src="vendor/jquery/dist/jquery.min.js"></script>
+        <script src="vendor/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-messages/angular-messages.js"></script>
+        <script src="vendor/angular-route/angular-route.js"></script>
+        <script src="vendor/angular-animate/angular-animate.js"></script>
+        <script src="vendor/ng-fab-form/dist/ng-fab-form.min.js" ></script>
+        <script src="vendor/lodash/lodash.min.js" ></script>
+
+        <script src="build/ngscripts.min.js"></script>
+        <script src="build/main.js"></script>
+    </body>
+</html>
