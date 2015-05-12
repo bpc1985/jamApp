@@ -9,7 +9,7 @@ module.exports = angular.module('jamApp.meetings', [
 
     var resolveMeetingsData = function($route, Meetings) {
       return Meetings.getMeetingsByTicketRef($route.current.params.ticketref).then(function(response){
-        console.log('response: ', response);
+        return response.meetings;
       });
     };
     resolveMeetingsData.$inject = ['$route', 'Meetings'];
@@ -18,6 +18,7 @@ module.exports = angular.module('jamApp.meetings', [
       .when('/meetings', {
         templateUrl: 'template/meetings.html',
         controller: 'MeetingsCtrl',
+        controllerAs: 'ctrl',
         resolve: {
           meetingsData: resolveMeetingsData
         }
