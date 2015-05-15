@@ -43,7 +43,7 @@ gulp.task('connect', connect.server({
 }));
 
 gulp.task('watch', function() {
-  gulp.watch('./app/scripts/**/*.js', ['minify']);
+  gulp.watch('./app/scripts/**/*.js', ['minify', 'connect']);
 });
 
 gulp.task('build', ['minify']);

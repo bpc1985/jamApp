@@ -1,17 +1,17 @@
 <div class="profile">
-	<section class="info-1">
+	<section class="info-1" ng-style="ctrl.profileImg">
 		<div class="wrapper borderleft">
-			<h2 class="pp-name">Hans StrÅberg</h2>
-			<div class="pp-title">Director@Investor AB</div>
+			<h2 class="pp-name">{{ctrl.profile.firstname}} {{ctrl.profile.lastname}}</h2>
+			<div class="pp-title">{{ctrl.profile.email}}</div>
 			<div class="pp-field">Investments</div>
 			<div class="pp-investment">Investment needed: 25K-10K</div>
-			<div class="pp-country">Belgium</div>
+			<div class="pp-country">{{ctrl.profile.country}}</div>
 		</div>
 	</section>
 
 	<section class="info-2">
 		<div class="wrapper">
-			<p class="center">I am the CEO and founder of Artexis Group, which consists of four organizations that manage exhibitions and trade shows in different regions: Artexis Belgium, Artexis Nordic, easyFairs and Fairs Consult.</p>
+			<p class="center">{{ctrl.profile.companydesc}}</p>
 		</div>
 	</section>
 

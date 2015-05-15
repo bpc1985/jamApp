@@ -7,6 +7,7 @@ module.exports = angular.module('jamApp.matches', [])
     var resolveMatchesData = function($route, Matches) {
       return Matches.getMatchesByTicketRef($route.current.params.ticketref).then(function(response){
         console.log('response: ', response);
+        return response.match;
       });
     };
     resolveMatchesData.$inject = ['$route', 'Matches'];
